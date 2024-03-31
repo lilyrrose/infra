@@ -1,0 +1,12 @@
+repositories:
+- name: portainer
+  url: https://portainer.github.io/k8s/
+
+releases:
+- name: portainer
+  chart: portainer/portainer
+  version: 1.0.49
+  namespace: portainer
+  createNamespace: true
+  values:
+  - values.yaml

@@ -1,0 +1,4 @@
+apiVersion: v2
+name: kubernetes-first
+description: Test helm chart for deployment
+version: 0.1.0

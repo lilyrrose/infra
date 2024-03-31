@@ -1,0 +1,20 @@
+repositories: []
+
+releases:
+- name: arc
+  chart: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
+  version: 0.9.0
+  namespace: github-arc-systems
+  values:
+  - gha-secret.values.yaml
+
+- name: olympus-runner-set
+  chart: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
+  version: 0.9.0
+  namespace: github-arc-runners
+  values:
+  - gha-secret.values.yaml
+  - gha-runner.values.yaml
+  set:
+  - name: githubConfigUrl
+    value: "https://github.com/lilyrrose/olympus"
