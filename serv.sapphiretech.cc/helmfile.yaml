@@ -1,0 +1,7 @@
+releases:
+- name: serv
+  chart: ../../serv/deploy/helm-chart # todo: helm chart server
+  namespace: serv
+  createNamespace: true
+  values:
+  - values.yaml.gotmpl

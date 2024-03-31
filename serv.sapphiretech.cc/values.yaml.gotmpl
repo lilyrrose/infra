@@ -1,0 +1,21 @@
+serv:
+  publicEndpoint: "https://serv.sapphiretech.cc"
+  apiKey: {{ requiredEnv "SERV_API_KEY" | quote }}
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/proxy-body-size: "30M"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+  hosts:
+  - host: serv.sapphiretech.cc
+    paths:
+    - path: /
+      pathType: Prefix
+  tls:
+  - hosts:
+    - serv.sapphiretech.cc
+    secretName: serv-tls
