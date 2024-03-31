@@ -1,3 +1,6 @@
 controllerServiceAccount:
   namespace: github-arc-systems
   name: arc-gha-rs-controller
+
+containerMode:
+  type: dind
