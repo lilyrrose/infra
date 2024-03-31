@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: docker-registry-ingress
+  namespace: docker-registry
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+  - hosts:
+    - docker.sapphiretech.cc
+    secretName: docker-registry-tls
+  ingressClassName: nginx
+  rules:
+  - host: "docker.sapphiretech.cc"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: docker-registry
+            port:
+              number: 5000
