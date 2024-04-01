@@ -1,6 +1,11 @@
+repositories:
+- name: sapphiretech
+  url: https://charts.sapphiretech.cc
+
 releases:
 - name: serv
-  chart: ../../serv/deploy/helm-chart # todo: helm chart server
+  chart: sapphiretech/serv-server
+  version: 0.1.2
   namespace: serv
   createNamespace: true
   values:
